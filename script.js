@@ -1,12 +1,20 @@
 const divContainer = document.getElementById("container");
 const newDrawingBtn = document.getElementById("newDrawing");
 
-newDrawingBtn.addEventListener("click", () => {
+newDrawingBtn.addEventListener("click", selectSquares);
+
+function selectSquares() {
   let numOfSquares = parseInt(
-    prompt("Type amount of squares per row/column for the new drawing: ")
+    prompt(
+      "Type amount of squares per row/column for the new drawing: (Max:100)"
+    )
   );
-  addNewDrawing(numOfSquares);
-});
+  if (numOfSquares <= 100) addNewDrawing(numOfSquares);
+  else {
+    alert("Number of squares selected are too high!");
+    selectSquares();
+  }
+}
 
 function addNewDrawing(num) {
   // Remove all children
