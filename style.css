@@ -21,10 +21,6 @@ html {
   background-color: white;
 }
 
-.gridCell:hover {
-  background-color: black;
-}
-
 .colorChanged {
-  background-color: black !important;
+  background-color: black;
 }

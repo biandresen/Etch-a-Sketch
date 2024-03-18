@@ -1,8 +1,26 @@
+//VARIABLE DECLARATION
 const divContainer = document.getElementById("container");
 const newDrawingBtn = document.getElementById("newDrawing");
+const modeNormalBtn = document.getElementById("modeNormal");
+const modeColorBtn = document.getElementById("modeColor");
+//const modeShadeBtn = document.getElementById("modeShade");
+let mode = 0;
+let r = 0;
+let g = 0;
+let b = 0;
 
+//EVENT LISTENERS
 newDrawingBtn.addEventListener("click", selectSquares);
+modeNormalBtn.addEventListener("click", () => {
+  mode = 0;
+  selectSquares();
+});
+modeColorBtn.addEventListener("click", () => {
+  mode = 1;
+  selectSquares();
+});
 
+//FUNCTIONS
 function selectSquares() {
   let numOfSquares = parseInt(
     prompt(
@@ -29,9 +47,22 @@ function addNewDrawing(num) {
       div.style.height = "calc(100%/" + num + ")";
       divContainer.appendChild(div);
       //Add new color to div squares
-      div.addEventListener("mouseenter", () => {
-        div.classList.add("colorChanged");
-      });
+      if (mode === 0) {
+        div.addEventListener("mouseenter", () => {
+          div.classList.add("colorChanged");
+        });
+      } else if (mode === 1) {
+        div.addEventListener("mouseenter", () => {
+          addRandomColor();
+          div.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+        });
+      }
     }
   }
+}
+
+function addRandomColor() {
+  r = Math.floor(Math.random() * 255);
+  g = Math.floor(Math.random() * 255);
+  b = Math.floor(Math.random() * 255);
 }
