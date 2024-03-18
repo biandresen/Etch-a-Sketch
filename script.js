@@ -20,7 +20,7 @@ function addNewDrawing(num) {
   // Remove all children
   while (divContainer.firstChild) {
     divContainer.removeChild(divContainer.firstChild);
-  }
+  } //Create squares
   for (i = 0; i < num; i++) {
     for (j = 0; j < num; j++) {
       const div = document.createElement("div");
@@ -28,6 +28,10 @@ function addNewDrawing(num) {
       div.style.width = "calc(100%/" + num + ")";
       div.style.height = "calc(100%/" + num + ")";
       divContainer.appendChild(div);
+      //Add new color to div squares
+      div.addEventListener("mouseenter", () => {
+        div.classList.add("colorChanged");
+      });
     }
   }
 }
