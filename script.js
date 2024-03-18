@@ -9,6 +9,10 @@ newDrawingBtn.addEventListener("click", () => {
 });
 
 function addNewDrawing(num) {
+  // Remove all children
+  while (divContainer.firstChild) {
+    divContainer.removeChild(divContainer.firstChild);
+  }
   for (i = 0; i < num; i++) {
     for (j = 0; j < num; j++) {
       const div = document.createElement("div");
