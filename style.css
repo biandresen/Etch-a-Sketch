@@ -8,6 +8,9 @@ body {
   background-color: darkgray;
   flex-direction: column;
   overflow: hidden;
+  background-image: url("./img/wooden_desk.jpg");
+  background-repeat: none;
+  background-size: cover;
 }
 
 button {
@@ -23,6 +26,7 @@ button {
   flex-wrap: wrap;
   height: calc(100vh - 30px);
   width: calc(100vh - 30px);
+  border: solid rgb(187, 187, 187) 3px;
 }
 
 .gridCell {
