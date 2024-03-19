@@ -27,6 +27,7 @@ button {
   height: calc(100vh - 30px);
   width: calc(100vh - 30px);
   border: solid rgb(187, 187, 187) 3px;
+  background-color: white;
 }
 
 .gridCell {
