@@ -26,6 +26,10 @@ modeShadeBtn.addEventListener("click", () => {
   selectSquares();
 });
 
+window.onload = function () {
+  addNewDrawing(100);
+};
+
 //FUNCTIONS
 function selectSquares() {
   let numOfSquares = parseInt(
@@ -33,9 +37,15 @@ function selectSquares() {
       "Type amount of squares per row/column for the new drawing: (Max:100)"
     )
   );
-  if (numOfSquares <= 100) addNewDrawing(numOfSquares);
-  else {
-    alert("Number of squares selected are too high!");
+  if (
+    numOfSquares >= 0 &&
+    numOfSquares <= 100 &&
+    numOfSquares !== null &&
+    numOfSquares !== ""
+  ) {
+    addNewDrawing(numOfSquares);
+  } else {
+    alert("Please choose a number between 0 - 100");
     selectSquares();
   }
 }
